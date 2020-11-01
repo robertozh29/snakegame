@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Snake JS</title>
+</head>
+<body>
+
+    <div class="board_score">SCORE<p id="board_score"></p></div>
+    <div class="start" id="startMessage">
+        <p>Presiona una tecla para iniciar</p>
+    </div>
+    <canvas id="snakeGame" width="300" height="300" ontouchmove="myFunction(event)"></canvas>
+
+    <div class="controles">
+        <div class="top">
+            <button id="top">Top</button>
+        </div>
+        <div class="middle">
+            <button class="left" id="left">Left</button>
+            <button class="right" id="right">Right</button>
+        </div>
+        <div class="bot">
+            <button id="bot">Bottom</button>
+        </div>
+        
+    </div>
+    
+
+    <!--<script src="test.js"></script>-->
+    <script src="script.js"></script>
+</body>
+</html>
