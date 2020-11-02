@@ -169,6 +169,8 @@ function main(){
 
 
 //despliega mensaje para iniciar juego
+
+
 genFood()
 main();
 document.addEventListener("keydown", change_direction);
