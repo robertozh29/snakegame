@@ -55,37 +55,40 @@ canvas{
 .controles{
     display: none;
     position: absolute;
-        top: 35%;
+        top: 40%;
         left: 50%;
         transform: translate(-50%, 50%);
-    width: 300px;
-    height: 300px;
-    border: 1px black solid;
-    border-radius: 50%;
-    padding: 10px;
+    width: 280px;
+    height: 280px;
 }
 
 
 .controles div{
     width: 100%;
-    height: 34%;
+    height: 33%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 button{
-    width: 33%;
-    height: 99%;
-    border-radius: 50%;
+    height: 90px;
+    width: 60px;
     background-color: lightslategray;
     outline: none;
     border: none;
     font-size: 16px;
 }
 
+.middle button{
+    height: 60px;
+    width: 90px;
+}
+
 .controles .middle{
+    height: 65px;
     justify-content: space-between;
+    padding: 0 15px;
 }
 
 
