@@ -14,7 +14,7 @@ var food = {x: 0, y: 0};
 let moveX = 0;
 let moveY = 0;
 var button = 0;
-
+var status;
 
 function drawMap(){
     for (let y = 0; y < 250; y +=10) {  
@@ -24,7 +24,6 @@ function drawMap(){
         }     
     }
 }
-
 
 function generateFood(){
     var x = 10 * Math.floor(Math.random() * 25);
@@ -58,19 +57,24 @@ function moveSnake(){
     }
 }
 
-function main(){
-    generateFood();
-        
+function main(){ 
+    var time = 140;  
+
     setInterval(() => {
-        drawMap();
-        drawFood();
-        moveSnake();
-        drawSnake();
-    }, 100);
+        if(status == "pause"){
+            moveY = 0;
+            moveX = 0;
+        }else{
+            drawMap();
+            drawFood();
+            moveSnake();
+            drawSnake();
+        }
+    }, time);
 }
 
 function changeDirection(e){
-
+    status = "play"
     var key;
     button === 0 ?  key = e.keyCode : key = button;
   
@@ -93,7 +97,7 @@ function changeDirection(e){
     button = 0;
 }
 
-
+generateFood();
 main();
 document.addEventListener("keydown", changeDirection);
 
@@ -114,5 +118,11 @@ right.onclick = function(){
     changeDirection()
 }
 
+circle[0].onclick = function(){
+    status = "pause"
+}
+circle[1].onclick = function(){
+    status = "pause"
+}
 
 
