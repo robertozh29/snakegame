@@ -7,14 +7,15 @@ const left = document.getElementById("left")
 const right = document.getElementById("right")
 
 var snake = [
-   {x:0, y: 0}
+   {x:120, y:120}
 ];
 
+let score = 0;
 var food = {x: 0, y: 0};
 let moveX = 0;
 let moveY = 0;
 var button = 0;
-var status;
+var gameStatus = "play";
 
 function drawMap(){
     for (let y = 0; y < 250; y +=10) {  
@@ -45,7 +46,6 @@ function drawSnake(){
 }
 
 function moveSnake(){
-
     const head = {x: snake[0].x + moveX, y: snake[0].y + moveY};
     snake.unshift(head)
     snake.pop();
@@ -55,13 +55,31 @@ function moveSnake(){
         var tail = {x: snake[snake.length-1].x + moveX, y: snake[snake.length-1].y + moveY};
         snake.push(tail)
     }
+
+      //Verificando si la serpiente toco un borde 
+    if(head.x === -10 || head.y === -10){    
+        alert("Perdiste");
+        gameStatus = "over";
+    } 
+    else if ((head.x === 250 || head.y === 250)){
+        alert("Perdiste");
+        gameStatus = "over";
+    }
+
+    for (let i = 4; i < snake.length; i++) {
+        if (snake[i].x === snake[0].x && snake[i].y === snake[0].y){
+        alert("Perdiste");
+        gameStatus = "over";
+        }
+    }
+
 }
 
 function main(){ 
-    var time = 140;  
+    var time = 140; 
 
-    setInterval(() => {
-        if(status == "pause"){
+    setTimeout(() => {
+        if(gameStatus == "pause"){
             moveY = 0;
             moveX = 0;
         }else{
@@ -70,11 +88,28 @@ function main(){
             moveSnake();
             drawSnake();
         }
+        if(gameStatus === "over"){
+            endGame();
+        }else{
+            main();
+        }
     }, time);
 }
 
+function endGame(){
+    snake = [
+      {x:120 , y:120}
+    ]
+    score = 0;
+    moveX = 0;
+    moveY = 0;
+    generateFood()
+    gameStatus = "play"
+    main();
+}
+
 function changeDirection(e){
-    status = "play"
+    gameStatus = "play"
     var key;
     button === 0 ?  key = e.keyCode : key = button;
   
@@ -117,12 +152,11 @@ right.onclick = function(){
     button = 68;  
     changeDirection()
 }
-
 circle[0].onclick = function(){
-    status = "pause"
+    gameStatus = "pause"
 }
 circle[1].onclick = function(){
-    status = "pause"
+    gameStatus = "pause"
 }
 
 

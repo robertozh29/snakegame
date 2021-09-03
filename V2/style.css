@@ -58,7 +58,7 @@
 
 .arrows .hor{
     position: absolute;
-    width: 100px;
+    width: 110px;
     height: 30px;
     background-color: #000;
     border-radius: 5px;
@@ -74,7 +74,7 @@
 .arrows .ver{
     position: absolute;
     width: 30px;
-    height: 100px;
+    height: 110px;
     background-color: #000;
     border-radius: 5px;
     display: flex;
