@@ -1,0 +1,19 @@
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "description": "Snake Game - Web app",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertozh29/snakegame.git"
+  },
+  "author": "Roberto Zepeda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robertozh29/snakegame/issues"
+  },
+  "homepage": "https://github.com/robertozh29/snakegame#readme"
+}
