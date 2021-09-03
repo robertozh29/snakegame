@@ -1,5 +1,10 @@
 const game = document.getElementById('game');
 const ctx = game.getContext("2d")
+const circle = document.getElementsByClassName("circle");
+const up = document.getElementById("up")
+const down = document.getElementById("down")
+const left = document.getElementById("left")
+const right = document.getElementById("right")
 
 var snake = [
    {x:0, y: 0}
@@ -8,6 +13,8 @@ var snake = [
 var food = {x: 0, y: 0};
 let moveX = 0;
 let moveY = 0;
+var button = 0;
+
 
 function drawMap(){
     for (let y = 0; y < 250; y +=10) {  
@@ -22,10 +29,7 @@ function drawMap(){
 function generateFood(){
     var x = 10 * Math.floor(Math.random() * 25);
     var y = 10 * Math.floor(Math.random() * 25 );       
-   
     food = {x: x, y: y};
-    console.log(food)
-    console.log(Math.floor(Math.random()*10))
 }
 
 function drawFood(){
@@ -62,39 +66,53 @@ function main(){
         drawFood();
         moveSnake();
         drawSnake();
-
-    }, 120);
+    }, 100);
 }
 
 function changeDirection(e){
-    var key = e.keyCode;
 
-    switch (key) {
-        case 38:
-            moveY = -10;
-            moveX = 0;
-            break;
-        case 40:
-            moveY = 10;
-            moveX = 0;
-            break;
-        case 37:
-            moveX = -10;
-            moveY = 0;
-            break;
-        case 39:
-            moveX = 10;
-            moveY = 0;
-            break;
-        default:
-            break;
+    var key;
+    button === 0 ?  key = e.keyCode : key = button;
+  
+    if((key === 87 || key === 38) && (moveY === 0)){
+      moveY = -10;
+      moveX = 0;
+    } 
+    else if((key === 83 || key === 40) && (moveY === 0)){
+      moveY = 10;
+      moveX = 0;
     }
+    else if((key === 65 || key === 37) && (moveX === 0)){
+      moveY = 0;
+      moveX = -10;
+    }
+    else if((key === 68 || key === 39) && (moveX === 0)){
+      moveY = 0;
+      moveX = 10;
+    }
+    button = 0;
 }
-
 
 
 main();
 document.addEventListener("keydown", changeDirection);
+
+up.onclick= function(){ 
+    button = 87;  
+    changeDirection()
+}
+down.onclick = function(){ 
+    button = 83;  
+    changeDirection()
+}
+left.onclick= function(){ 
+    button = 65;  
+    changeDirection()
+}
+right.onclick = function(){ 
+    button = 68;  
+    changeDirection()
+}
 
 
 

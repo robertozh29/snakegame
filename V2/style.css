@@ -62,7 +62,13 @@
     height: 30px;
     background-color: #000;
     border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
 
+.hor div{
+    width: 35%;
+    height: 30px;
 }
 
 .arrows .ver{
@@ -71,6 +77,14 @@
     height: 100px;
     background-color: #000;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ver div{
+    height: 35%;
+    width: 30px;
 }
 
 .circles{
@@ -92,6 +106,20 @@
     margin-bottom: 15px;
 }
 
-canvas{
-    background-color: rgba(0,0,0,0.85);
+@media screen and (max-width: 430px){
+    :root {
+        --paddingX: calc(50vw - 150px);
+        --paddingY: calc(25vh - 150px);
+      }
+    .game-container{
+        padding: var(--paddingY) var(--paddingX) ;    
+        border-radius: 10px;
+    }
+
+    .canvas-container{
+        padding: 0;
+        background-color: rgba(0,0,0,0);
+        border-radius: none;
+
+    }
 }
