@@ -5,6 +5,9 @@ const up = document.getElementById("up")
 const down = document.getElementById("down")
 const left = document.getElementById("left")
 const right = document.getElementById("right")
+var audio = new Audio('coin.wav');
+audio.volume = 0.05;
+  
 
 var snake = [
    {x:120, y:120}
@@ -51,6 +54,7 @@ function moveSnake(){
     snake.pop();
 
     if(food.x == snake[0].x && food.y == snake[0].y ){
+        audio.play()
         generateFood();
         var tail = {x: snake[snake.length-1].x + moveX, y: snake[snake.length-1].y + moveY};
         snake.push(tail)
@@ -68,8 +72,8 @@ function moveSnake(){
 
     for (let i = 4; i < snake.length; i++) {
         if (snake[i].x === snake[0].x && snake[i].y === snake[0].y){
-        alert("Perdiste");
-        gameStatus = "over";
+            alert("Perdiste");
+            gameStatus = "over";
         }
     }
 

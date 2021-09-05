@@ -1,125 +1,153 @@
-*{
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.snakegame {
+  background-color: rgb(20, 20, 20);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.score-board {
+  display: none;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 40px;
+  background-color: rgb(80, 80, 80);
+  border-radius: 10px;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 50px 25px;
+  background-color: #bcb7b4;
+  border-radius: 10px;
+}
+
+.canvas-container {
+  padding: 25px 60px;
+  background-color: #928e93;
+  border-radius: 8px 8px 50px 8px;
+}
+
+.controls {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 10%;
+}
+
+.arrows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrows .hor {
+  position: absolute;
+  width: 110px;
+  height: 30px;
+  background-color: #000;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hor div {
+  width: 35%;
+  height: 30px;
+}
+
+.arrows .ver {
+  position: absolute;
+  width: 30px;
+  height: 110px;
+  background-color: #000;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ver div {
+  height: 35%;
+  width: 30px;
+}
+
+.circles {
+  width: min-content;
+  background-color: #a1a59e;
+  padding: 5px 2px;
+  border-radius: 35px;
+  transform: rotate(40deg);
+}
+
+.circle {
+  width: 45px;
+  height: 45px;
+  background-color: #97072e;
+  border-radius: 50%;
+}
+
+.circle:first-child {
+  margin-bottom: 15px;
+}
+
+.logo {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo img {
+  margin-bottom: 5px;
+  width: 50px;
+}
+
+@media screen and (max-width: 430px) {
+  :root {
+    --paddingX: calc(50vw - 150px);
+    --paddingY: calc(25vh - 150px);
+  }
+  .game-container {
+    padding: var(--paddingY) var(--paddingX);
+    border-radius: 10px;
+  }
+
+  .canvas-container {
     padding: 0;
-    margin: 0;
-        box-sizing: border-box;
-}
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: none;
+  }
 
-
-
-.snakegame{
-    background-color: rgb(20, 20, 20);
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.score-board{
-    display: none;
-    width: 100%;
-    height: 40px;
-    margin-bottom: 40px;
-    background-color: rgb(80,80,80);
-    border-radius: 10px;
-}
-
-.game-container{
+  .logo {
+    position: absolute;
+    bottom: 10px;
+    right: calc(50vw - 40px);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    padding: 50px 25px;    
-    background-color: #bcb7b4;
-    border-radius: 10px;
-}
+  }
 
-.canvas-container{
-    padding: 25px 60px;
-    background-color: #928e93;
-    border-radius: 8px 8px 50px 8px;
-}
-
-.controls{
-    width: 100%;
-    height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content:space-around;
-    margin-left: 10%;
-}
-
-
-.arrows{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.arrows .hor{
-    position: absolute;
-    width: 110px;
-    height: 30px;
-    background-color: #000;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.hor div{
-    width: 35%;
-    height: 30px;
-}
-
-.arrows .ver{
-    position: absolute;
-    width: 30px;
-    height: 110px;
-    background-color: #000;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.ver div{
-    height: 35%;
-    width: 30px;
-}
-
-.circles{
-    width: min-content;
-    background-color: #a1a59e;
-    padding: 5px 2px;
-    border-radius: 35px;
-    transform: rotate(40deg);
-}
-
-.circle{
-    width: 45px;
-    height: 45px;
-    background-color: #97072e;
-    border-radius: 50%;
-}
-
-.circle:first-child{
-    margin-bottom: 15px;
-}
-
-@media screen and (max-width: 430px){
-    :root {
-        --paddingX: calc(50vw - 150px);
-        --paddingY: calc(25vh - 150px);
-      }
-    .game-container{
-        padding: var(--paddingY) var(--paddingX) ;    
-        border-radius: 10px;
-    }
-
-    .canvas-container{
-        padding: 0;
-        background-color: rgba(0,0,0,0);
-        border-radius: none;
-
-    }
+  .logo p {
+    font-size: 9px;
+    color: rgb(130, 130, 130);
+  }
+  .logo img {
+    margin-bottom: 5px;
+    width: 25px;
+  }
 }
