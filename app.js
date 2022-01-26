@@ -7,13 +7,13 @@ const left = document.getElementById("left")
 const right = document.getElementById("right")
 var audio = new Audio('coin.wav');
 audio.volume = 0.05;
-  
+const scoreboard = document.getElementById('score');
+let score = 0;
 
 var snake = [
    {x:120, y:120}
 ];
 
-let score = 0;
 var food = {x: 0, y: 0};
 let moveX = 0;
 let moveY = 0;
@@ -55,26 +55,31 @@ function moveSnake(){
     snake.pop();
 
     if(food.x == snake[0].x && food.y == snake[0].y ){
-        audio.play()
+        audio.play();
         generateFood();
         var tail = {x: snake[snake.length-1].x + moveX, y: snake[snake.length-1].y + moveY};
         snake.push(tail)
+        score++;
+        scoreboard.innerHTML = score;
     }
 
-      //Verificando si la serpiente toco un borde 
+      //Verificando si la serpiente toco un borde o su cuerpo
     if(head.x === -10 || head.y === -10){    
-        alert("Perdiste");
+        alert("Game Over");
         gameStatus = "over";
+        scoreboard.innerHTML = 0;
     } 
     else if ((head.x === 250 || head.y === 250)){
-        alert("Perdiste");
+        alert("Game Over");
         gameStatus = "over";
+        scoreboard.innerHTML = 0;
     }
 
     for (let i = 4; i < snake.length; i++) {
         if (snake[i].x === snake[0].x && snake[i].y === snake[0].y){
-            alert("Perdiste");
+            alert("Game Over");
             gameStatus = "over";
+            scoreboard.innerHTML = 0;
         }
     }
 
