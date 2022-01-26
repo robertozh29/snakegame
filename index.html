@@ -2,33 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Snake JS</title>
+    <title>Snake Game</title>
 </head>
 <body>
+    <div class="snakegame">
 
-    <div class="board_score">SCORE<p id="board_score"></p></div>
-    <div class="start" id="startMessage">
-        <p class="mobile">Presiona para iniciar</p>
-    </div>
-    <canvas id="snakeGame" width="300" height="300" ontouchmove="myFunction(event)"></canvas>
+        <div class="game-container">
 
-    <div class="controles">
-        <div class="top">
-            <button id="top">↑</button>
-        </div>
-        <div class="middle">
-            <button class="left" id="left">←</button>
-            <button class="right" id="right">→</button>
-        </div>
-        <div class="bot">
-            <button id="bot">↓</button>
-        </div>
-        
-    </div>
+            <div class="canvas-container">
+                <div class="scoreboard"><p>Score: 12</p></div>
+                <canvas id="game" width="250" height="250"></canvas>
+            </div>
+            
+            <div class="controls">
+                <div class="arrows">
+                    <div class="hor">
+                        <div id="left"></div>
+                        <div id="right"></div>
+                    </div>
+                    <div class="ver">
+                        <div id="up"></div>
+                        <div id="down"></div>
+                    </div>
+                </div>
+                <div class="circles">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
 
-    <!--<script src="test.js"></script>-->
-    <script src="script.js"></script>
+            </div>
+
+        </div>
+
+        <span class="logo">
+            <img src="./joystick.png" alt="">
+            <p>Roberto Zepeda - 2020</p>
+        </span>
+
+    </div>  
+
+    <script src="./app.js"></script>
 </body>
 </html>

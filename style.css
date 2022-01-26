@@ -1,106 +1,156 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-*{
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.snakegame {
+  background-color: rgb(20, 20, 20);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 50px 25px;
+  background-color: #bcb7b4;
+  border-radius: 10px;
+}
+
+.canvas-container {
+  padding: 25px 60px;
+  background-color: #928e93;
+  border-radius: 8px 8px 50px 8px;
+}
+.scoreboard {
+  width: 100%;
+  height: 12px;
+  background-color: #a5ad89;
+  font-size: 10px;
+  text-align: end;
+  padding-right: 6px;
+}
+
+.controls {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 10%;
+}
+
+.arrows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrows .hor {
+  position: absolute;
+  width: 110px;
+  height: 30px;
+  background-color: #000;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hor div {
+  width: 35%;
+  height: 30px;
+}
+
+.arrows .ver {
+  position: absolute;
+  width: 30px;
+  height: 110px;
+  background-color: #000;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ver div {
+  height: 35%;
+  width: 30px;
+}
+
+.circles {
+  width: min-content;
+  background-color: #a1a59e;
+  padding: 5px 2px;
+  border-radius: 35px;
+  transform: rotate(40deg);
+}
+
+.circle {
+  width: 45px;
+  height: 45px;
+  background-color: #97072e;
+  border-radius: 50%;
+}
+
+.circle:first-child {
+  margin-bottom: 15px;
+}
+
+.logo {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo img {
+  margin-bottom: 5px;
+  width: 50px;
+}
+
+@media screen and (max-width: 430px) {
+  :root {
+    --paddingX: calc(50vw - 150px);
+    --paddingY: calc(25vh - 150px);
+  }
+  .game-container {
+    padding: var(--paddingY) var(--paddingX);
+    border-radius: 10px;
+  }
+
+  .canvas-container {
     padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: none;
+  }
 
-html{
-    overflow: hidden;
-}
-
-body{
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.85);
-    font-family: 'Roboto', sans-serif;
-}
-
-.board_score{
-    width: 100%;
-    margin: 20px auto;
-    color: #fff;
-    text-align: center;
-}
-
-canvas{
+  .logo {
     position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -60%);
-    background-color: rgb(51, 51, 51);
-}
-
-.start{
-    width: 300px;
-    height: 300px;
-    position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -60%);
+    bottom: 10px;
+    right: calc(50vw - 40px);
     display: flex;
-    justify-content: center;    
-    z-index: 1000;
-}
-
-.start p{
-    position: relative;
-    top: 120px;
-    height: min-content;
-    font-size: 20px;
-    color: rgb(199, 199, 199);
-}
-
-.controles{
-    display: none;
-    position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, 50%);
-    width: 280px;
-    height: 280px;
-}
-
-
-.controles div{
-    width: 100%;
-    height: 33%;
-    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-}
+  }
 
-button{
-    height: 90px;
-    width: 60px;
-    background-color: lightslategray;
-    outline: none;
-    border: none;
-    font-size: 16px;
-}
-
-.middle button{
-    height: 60px;
-    width: 90px;
-}
-
-.controles .middle{
-    height: 65px;
-    justify-content: space-between;
-    padding: 0 15px;
-}
-
-
-@media (max-width: 500px ){
-    .controles{
-        display: block;
-    }
-    canvas{
-        top:35%;
-    }
-    .start{
-        top:35%;
-    }
-    
+  .logo p {
+    font-size: 9px;
+    color: rgb(130, 130, 130);
+  }
+  .logo img {
+    margin-bottom: 5px;
+    width: 25px;
+  }
 }
