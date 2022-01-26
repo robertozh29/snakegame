@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+
 .snakegame {
   background-color: rgb(20, 20, 20);
   width: 100vw;
@@ -11,15 +15,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.score-board {
-  display: none;
-  width: 100%;
-  height: 40px;
-  margin-bottom: 40px;
-  background-color: rgb(80, 80, 80);
-  border-radius: 10px;
 }
 
 .game-container {
@@ -36,6 +31,14 @@
   padding: 25px 60px;
   background-color: #928e93;
   border-radius: 8px 8px 50px 8px;
+}
+.scoreboard {
+  width: 100%;
+  height: 12px;
+  background-color: #a5ad89;
+  font-size: 10px;
+  text-align: end;
+  padding-right: 6px;
 }
 
 .controls {

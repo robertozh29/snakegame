@@ -28,7 +28,8 @@ function drawMap(){
         }     
     }
 }
-
+//(135, 161, 82)
+//124,176,97
 function generateFood(){
     var x = 10 * Math.floor(Math.random() * 25);
     var y = 10 * Math.floor(Math.random() * 25 );       
